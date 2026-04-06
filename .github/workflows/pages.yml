@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '18'
       - name: Install Dependencies
-        run: npm install
+        run: npm install -g hexo-cli && npm install
       - name: Build Hexo
         run: npx hexo generate
       - name: Upload artifact
