@@ -15,7 +15,10 @@ jobs:
         with:
           node-version: '18'
       - name: Install Dependencies
-        run: npm install -g hexo-cli && npm install
+        run: |
+          rm -rf package-lock.json yarn.lock node_modules
+          npm install --force
+          npm install hexo
       - name: Build Hexo
         run: npx hexo generate
       - name: Upload artifact
