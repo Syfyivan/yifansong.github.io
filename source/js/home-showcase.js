@@ -145,15 +145,15 @@
   var AI_TOWN_URL = "/courses/ai-town/";
 
   var TOWN = [
-    { key: "school", name: "课程", desc: "把文章串成可连续学习的课程", href: "/courses/", row: "back", pet: "sheep" },
-    { key: "workshop", name: "项目工坊", desc: "每个项目一张工单，配拆解教程", href: "/projects/", row: "back", pet: null },
-    { key: "wizard", name: "AI 视觉", desc: "AI 视觉浏览器的魔法画册", href: "/flipbook/", row: "back", pet: "butterfly" },
-    { key: "aitown", name: "AI 小镇", desc: "阅读 AI 小镇的实现课程", href: AI_TOWN_URL, row: "front", pet: null, bus: true },
-    { key: "about", name: "关于我", desc: "村长一凡住在这里", href: "/about/", row: "front", pet: "babychick", smoke: true },
-    { key: "news", name: "晨读", desc: "每天早上的技术晨报", href: "/morning-read/", row: "front", pet: "duck" },
-    { key: "painters", name: "画室", desc: "协作像素画室", href: "/painters-guild/", row: "front", pet: "fox" },
-    { key: "archive", name: "归档", desc: "全部文章按时间归档", href: "/archives/", row: "front", pet: "rabbit" },
-    { key: "mahjong", name: "麻将", desc: "在线麻将小游戏", href: "/mahjong/", row: "front", pet: null },
+    { key: "school", name: "课程", desc: "把文章串成可连续学习的课程", href: "/courses/", row: "back" },
+    { key: "workshop", name: "项目工坊", desc: "每个项目一张工单，配拆解教程", href: "/projects/", row: "back" },
+    { key: "wizard", name: "AI 视觉", desc: "AI 视觉浏览器的魔法画册", href: "/flipbook/", row: "back" },
+    { key: "aitown", name: "AI 小镇", desc: "阅读 AI 小镇的实现课程", href: AI_TOWN_URL, row: "front", bus: true },
+    { key: "about", name: "关于我", desc: "村长一凡住在这里", href: "/about/", row: "front" },
+    { key: "news", name: "晨读", desc: "每天早上的技术晨报", href: "/morning-read/", row: "front" },
+    { key: "painters", name: "画室", desc: "协作像素画室", href: "/painters-guild/", row: "front" },
+    { key: "archive", name: "归档", desc: "全部文章按时间归档", href: "/archives/", row: "front" },
+    { key: "mahjong", name: "麻将", desc: "在线麻将小游戏", href: "/mahjong/", row: "front" },
   ];
 
   function isExternal(href) {
@@ -164,7 +164,6 @@
     var tgt = isExternal(lot.href) ? '" target="_blank" rel="noopener"' : '"';
     return (
       '<a class="town-lot town-lot--' + lot.key + ' town-lot--' + lot.row + '" href="' + lot.href + tgt + ' aria-label="' + escapeHtml(lot.name) + '：' + escapeHtml(lot.desc) + '">' +
-        (lot.smoke ? '<span class="town-lot__smoke"></span>' : "") +
         '<span class="town-lot__house"></span>' +
         '<span class="town-lot__sign">' + escapeHtml(lot.name) + "</span>" +
       "</a>"
@@ -181,17 +180,8 @@
     var village = document.createElement("div");
     village.className = "village";
     village.innerHTML =
-      '<div class="village__sun" aria-hidden="true"></div>' +
-      '<div class="village__cloud village__cloud--a" aria-hidden="true"></div>' +
-      '<div class="village__cloud village__cloud--b" aria-hidden="true"></div>' +
       '<div class="village__ground" aria-hidden="true"></div>' +
-      '<div class="village__path" aria-hidden="true"></div>' +
-      '<div class="village__tree village__tree--big village__tree--l" aria-hidden="true"></div>' +
-      '<div class="village__tree village__tree--mid village__tree--l2" aria-hidden="true"></div>' +
-      '<div class="village__tree village__tree--big village__tree--r" aria-hidden="true"></div>' +
-      '<div class="village__tree village__tree--mid village__tree--r2" aria-hidden="true"></div>' +
-      '<nav class="town" aria-label="小镇导航">' + lots + "</nav>" +
-      '<div class="village__well" aria-hidden="true"></div>';
+      '<nav class="town" aria-label="小镇导航">' + lots + "</nav>";
     banner.appendChild(village);
 
     var bannerText = banner.querySelector(".banner-text");
@@ -218,7 +208,7 @@
     var ctx = canvas.getContext("2d");
     if (!ctx) { canvas.remove(); return; }
     var petals = [];
-    var COUNT = banner.clientWidth < 600 ? 10 : 20;
+    var COUNT = banner.clientWidth < 600 ? 4 : 8;
     var raf = 0;
     var visible = true;
     var lastFrame = 0;

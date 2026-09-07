@@ -235,9 +235,9 @@ font:
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
 custom_js:
   - /js/search-core.js?v=20260905-1.js
-  - /js/home-showcase.js?v=20260906-4.js
-  - /js/farm-core.js?v=20260906-4.js
-  - /js/farm.js?v=20260906-4.js
+  - /js/home-showcase.js?v=20260907-1.js
+  - /js/farm-core.js?v=20260907-1.js
+  - /js/farm.js?v=20260907-1.js
   - /js/token-usage.js?v=20260905-1.js
   - /js/post-heading-hash.js?v=20260617-2.js
   - /js/post-affiliation.js?v=20260618-2.js
@@ -252,8 +252,8 @@ custom_css:
   - /css/site-polish.css?v=20260905-1.css
   - /css/post-affiliation.css?v=20260618-1.css
   - /css/post-inline-editor.css?v=20260618-1.css
-  - /css/blog-refinement.css?v=20260906-4.css
-  - /css/farm.css?v=20260906-4.css
+  - /css/blog-refinement.css?v=20260907-1.css
+  - /css/farm.css?v=20260907-1.css
 
 # 网页访问统计
 # Analysis of website visitors
